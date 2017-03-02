@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="/files/global.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="/files/storage.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="/files/entries.css" media="screen" rel="stylesheet" type="text/css"/>
+    <title>SomeTimes Новости</title>
+</head>
+<body class="division-storage division-storage-blog blog_2797 blog_novosti storage_2797 q-art-5"
+      data-promotion="[&quot;promotion\/q-art&quot;]" data-ga-key="UA-72696434-1" data-blog-id="2797"
+      data-blog-tag="novosti" data-storage="1">
+<div class="h-layoutWide" id="h-layoutWide">
+    <header>
+        <div class="narrowHeader clearfix">
+
+            <a href="/" class="logo" title="Главная"><img src="/files/web-logo.png" alt="Somes."/></a>
+            <div class="randomQuotation g-dsp">
+                <a class="web usercard" href="/"><img
+                        src="/files/owner.jpg"  border="0" width="124"
+                        height="110"/></a>
+                <div class="quotation">
+                    <p>
+                        <a class="userInSubject usercard"  href="http://vk.com/ibarhatov">Иван
+                            Бархатов</a>
+                    <p>Работать нужно с удовольствием.</p></p>
+                </div>
+                <div class="quotation-decor"></div>
+            </div>
+
+        </div>
+        <div class="h-h-mainMenu h-h-mainMenu_new">
+            <div class="h-mainMenu clearfix">
+                <ul class="mainMenu">
+                    <li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <nav class="goToBlog goToBlog_header collapse navbar-collapse" data-gotoblog="">
+
+        <div class="goToBlog__nav nav navbar-nav">
+            <div class="goToBlog__left">
+                <li>
+                    <a href="/">Все новости</a>
+                </li>
+                <li th:each="category : ${categories}"><a class=" " th:href="@{/(categoryId=${category.id})}"
+                                                          th:text="${category.name}">
+                </a>
+                </li>
+            </div>
+            <div class="goToBlog__left">
+                <form method="get">
+                    <i><input type="text" name="search" placeholder="Поиск"/></i>
+                    <input name="categoryId" th:value="${categoryId}" type="hidden"/>
+                    <button style="background: #e8e8e8" type="submit">Искать!</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="h-layoutNarrow">
+
+        <div class="mainLayout">
+            <div class="content left">
+
+                <div class="storageTitle clearfix">
+                    <h1><strong><span th:text="${headerText}"></span></strong></h1>
+
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="entryList entryList-blog">
+
+                    <div class="storageItem storageItem-byAuthor" id="entry_121179" th:each="article : ${news}">
+                        <time>
+
+                            <p th:text="${article.date}"/>
+
+                        </time>
+                        <form method="post">
+                            <h2 class=""><a th:href="@{/article(articleId=${article.id})}">
+                                <span th:text="${article.title}"/></a></h2>
+                            <p class="storageItem__author">
+                                <a class=" usercard" href="http://vk.com/ibarhatov">Иван Бархатов</a>
+                            </p>
+
+                            <div class="storageItem__lead">
+                                <span th:text="${article.text}"/><br/>
+
+                                <div class="clear"></div>
+                            </div>
+                            <button style="background: #e8e8e8" name="removeArticle" type="submit"
+                                    th:value="${article.id}">Удалить
+                            </button>
+                        </form>
+                    </div>
+
+                    <a class="paginationControl__more visible-mobile" data-more-more="/selected/blog/2797/page/2">
+                        <span>Еще <i class="ico_v ico_v_triangle_w"></i></span>
+                        <div class="loading-bar hidden" data-more-more-preloader="disabled">
+                            <div class="round"></div>
+                            <div class="round"></div>
+                            <div class="round"></div>
+                        </div>
+                    </a>
+                    <p class="storageItem__author">
+                        <a class=" usercard" href="/addArticle"><b>Добавить статью</b></a></p>
+                    <br/>
+                </div>
+            </div>
+            <div class="content right">
+
+                <div class="banner bannerMagazine">
+                    <div id="adriver_banner_1232597737"></div>
+
+                    <!--  AdRiver code END  --></div>
+                <div class="banner bannerExhibition">
+                    <div id="adriver_banner_2094037228"></div>
+                    <div id="adriver_banner_1673935976"></div>
+
+                </div>
+                <div class="banner bannerSubscribe">
+                    <!--  AdRiver code END  --></div>
+
+            </div>
+            <div style="clear:both;"></div>
+
+            <div class="h-wrapper-count h-wrapper-count_color_black">
+                <div class="footer__copy"><br/><br/>
+                    Бархатов Иван, 2017
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
