@@ -127,10 +127,9 @@ h3 {
 }
 .mainBlock {
     /*border: 1px solid silver;*/
-/*    display: flex;*/
     margin-left: auto;
     margin-right: auto;
-    min-height: 900px;
+    min-height: 650px;
     width: 990px;
 }
 .articlesZone {

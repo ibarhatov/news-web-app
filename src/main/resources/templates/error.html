@@ -1,53 +1,57 @@
-<!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <link href="/files/global.css" media="screen" rel="stylesheet" type="text/css"/>
-    <link href="/files/storage.css" media="screen" rel="stylesheet" type="text/css"/>
-    <link href="/files/entries.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="/files/style.css" type="text/css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
     <title>SomeTimes Новости</title>
 </head>
-<body class="division-storage division-storage-blog blog_2797 blog_novosti storage_2797 q-art-5"
-      data-promotion="[&quot;promotion\/q-art&quot;]" data-ga-key="UA-72696434-1" data-blog-id="2797"
-      data-blog-tag="novosti" data-storage="1">
-
-<div class="h-layoutWide" id="h-layoutWide">
-
-    <header>
-        <div class="narrowHeader clearfix">
-
-            <a href="/" class="logo" title="Главная"><img src="/files/web-logo.png" alt="Somes."/></a>
-            <div class="randomQuotation g-dsp">
-                <a class="web usercard" href="/"><img
-                        src="/files/owner.jpg"  border="0" width="124"
-                        height="110"/></a>
-                <div class="quotation">
-                    <p>
-                        <a class="userInSubject usercard"  href="http://vk.com/ibarhatov">Иван
-                            Бархатов</a>
-                    <p>Oooopss...</p></p>
-                </div>
-                <div class="quotation-decor"></div>
-            </div>
-
-        </div>
-        <div class="h-h-mainMenu h-h-mainMenu_new">
-            <div class="h-mainMenu clearfix">
-                <ul class="mainMenu">
-                    <li>
-                        <p>
-                        <h1><strong>Кажется что-то пошло не так...</strong></h1></p>
-                    </li>
-                </ul>
+<body>
+<div class="top">
+    <!--Header-->
+    <div class="header">
+        <!--Logo-->
+        <a class="logo" href="/" title="Главная">
+            <img src="/files/logo.png"/>
+        </a>
+        <div class="peoplesSpeak">
+            <!--Photo-->
+            <a class="photoBlock" href="/" title="Главная">
+                <img class="ownersPhoto" src="/files/owner.jpg"/>
+            </a>
+            <!--Quote-->
+            <div class="quote">
+                <p class="speaker">Иван Бархатов</p>
+                <p>Oooopsss...</p>
             </div>
         </div>
-    </header>
-    <div class="h-layoutNarrow">
-        <div class="storageTitle clearfix">
-
-            <br/>
-            <p>
-            <h1><strong><a href="/">На главную</a> </strong></h1></p>
+    </div>
+    <!--Menu-->
+    <div class="menuZone">
+        <div class="menuPanel">
+            <!--Categories-->
+            <div class="categoriesZone">
+                <a class="categoryButton" href="/">
+                    <h3>Кажется что-то пошло не так...</h3>
+                </a>
+            </div>
         </div>
+    </div>
+</div>
+<div class="mainBlock">
+    <div class="articlesZone">
+        <!--MAIN BLOCK-->
+        <div class="topic">
+            <h1>
+                <a href="/">На главную</a>
+            </h1>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+<div class="bottomZone">
+    <div class="bottomPanel">
+        <a href="https://vk.com/ibarhatov" class="creatingInfo">
+            Бархатов Иван, 2017
+        </a>
     </div>
 </div>
 </body>

@@ -1,109 +1,91 @@
-<!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link href="/files/global.css" media="screen" rel="stylesheet" type="text/css"/>
-    <link href="/files/storage.css" media="screen" rel="stylesheet" type="text/css"/>
-    <link href="/files/entries.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="/files/style.css" type="text/css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
     <title>SomeTimes Новости</title>
 </head>
-<body class="division-storage division-storage-blog blog_2797 blog_novosti storage_2797 q-art-5"
-      data-promotion="[&quot;promotion\/q-art&quot;]" data-ga-key="UA-72696434-1" data-blog-id="2797"
-      data-blog-tag="novosti" data-storage="1">
-<div class="h-layoutWide" id="h-layoutWide">
-    <header>
-        <div class="narrowHeader clearfix">
-
-            <a href="/" class="logo" title="Главная"><img src="/files/web-logo.png" alt="Somes."/></a>
-            <div class="randomQuotation g-dsp">
-                <a class="web usercard" href="/"><img
-                        src="/files/owner.jpg" border="0" width="124"
-                        height="110"/></a>
-                <div class="quotation">
-                    <p>
-                        <a class="userInSubject usercard" href="http://vk.com/ibarhatov">Иван
-                            Бархатов</a>
-                    <p>Работать нужно с удовольствием.</p></p>
-                </div>
-                <div class="quotation-decor"></div>
-            </div>
-
-        </div>
-        <div class="h-h-mainMenu h-h-mainMenu_new">
-            <div class="h-mainMenu clearfix">
-                <ul class="mainMenu">
-                    <li>
-                    </li>
-                </ul>
+<body>
+<div class="top">
+    <!--Header-->
+    <div class="header">
+        <!--Logo-->
+        <a class="logo" href="/" title="Главная">
+            <img src="/files/logo.png"/>
+        </a>
+        <div class="peoplesSpeak">
+            <!--Photo-->
+            <a class="photoBlock" href="/" title="Главная">
+                <img class="ownersPhoto" src="/files/owner.jpg"/>
+            </a>
+            <!--Quote-->
+            <div class="quote">
+                <p class="speaker">Иван Бархатов</p>
+                <p>Работать нужно с удовольствием.</p>
             </div>
         </div>
-    </header>
-    <nav class="goToBlog goToBlog_header collapse navbar-collapse" data-gotoblog="">
-
-        <div class="goToBlog__nav nav navbar-nav">
-            <div class="goToBlog__left">
-                <li>
-                    <a href="/">Все новости</a>
-                </li>
-                <li th:each="category : ${categories}"><a class=" " th:href="@{/(categoryId=${category.id})}"
-                                                          th:text="${category.name}">
+    </div>
+    <!--Menu-->
+    <div class="menuZone">
+        <div class="menuPanel">
+            <!--Categories-->
+            <div class="categoriesZone">
+                <a class="categoryButton" href="/">
+                    <h3>Все новости</h3>
                 </a>
-                </li>
+                <a class="categoryButton" th:each="category : ${categories}" th:href="@{/(categoryId=${category.id})}">
+                    <h3 th:text="${category.name}"/>
+                </a>
             </div>
-            <div class="goToBlog__left">
-                <form method="get">
-                    <i><input type="text" name="search" placeholder="Поиск"/></i>
-                    <input name="categoryId" th:value="${categoryId}" type="hidden"/>
-                    <button style="background: #e8e8e8" type="submit">Искать!</button>
-                </form>
-            </div>
+            <!--Search-->
+            <form class="searchPanel" method="get">
+                <i><input type="text" name="search" placeholder="Поиск"/></i>
+                <input name="categoryId" th:value="${categoryId}" type="hidden"/>
+                <button style="background: #e8e8e8" type="submit">Искать!</button>
+            </form>
         </div>
-    </nav>
-    <div class="h-layoutNarrow">
-        <div class="mainLayout">
-            <div class="content left">
-                <div class="entryList entryList-blog">
-                    <div class="storageItem storageItem-byAuthor" id="entry_121179">
-                        <form method="post">
-                            <div>
-                                <p class="storageItem__author">Заголовок:</p>
-                                <input type="text" name="title" placeholder="Заголовок"/>
-                            </div>
-                            <br/>
-                            <div>
-                                <p class="storageItem__author">Категория:</p>
-                                <select name="category">
-                                    <option th:value="${category.id}" th:text="${category.name}"
-                                            th:each="category : ${categories}"/>
-                                </select>
-                            </div>
-                            <br/>
-                            <div>
-                                <p class="storageItem__author">Текст</p>
-                                <textarea type="text" name="text" cols="100" rows="20" placeholder="Текст"/>
-                            </div>
-                            <br/>
-                            <br/>
-                            <div>
-                                <p class="storageItem__author">
-                                    <button class=" usercard" type="submit">Добавить статью</button>
-                                </p>
-                            </div>
-                        </form>
-                    </div>
-                    <p class="storageItem__author">
-                        <a class=" usercard" href="/"><b>На главную</b></a></p>
-                    <br/>
-                </div>
+    </div>
+</div>
+<div class="mainBlock">
+    <div class="articlesZone">
+        <!--MAIN BLOCK-->
+        <form method="post">
+            <div>
+                <h2>Заголовок</h2>
+                <input type="text" name="title" placeholder="Заголовок"/>
             </div>
-            <div class="content right"></div>
-            <div style="clear:both;"></div>
-
-            <div class="h-wrapper-count h-wrapper-count_color_black">
-                <div class="footer__copy"><br/><br/>
-                    Бархатов Иван, 2017
-                </div>
+            <br/>
+            <div>
+                <h2>Категория</h2>
+                <select name="category">
+                    <option th:value="${category.id}" th:text="${category.name}"
+                            th:each="category : ${categories}"/>
+                </select>
             </div>
-        </div>
+            <br/>
+            <div>
+                <h2>Текст</h2>
+                <textarea type="text" name="text" cols="100" rows="20" placeholder="Текст"/>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <p>
+                    <button class="deleteButton" type="submit">Сохранить</button>
+                </p>
+            </div>
+        </form>
+    </div>
+    <!--Adverts-->
+    <div class="advZone">
+        <img class="banner" src="/files/banner.png"/>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+<div class="bottomZone">
+    <div class="bottomPanel">
+        <a href="https://vk.com/ibarhatov" class="creatingInfo">
+            Бархатов Иван, 2017
+        </a>
     </div>
 </div>
 </body>
