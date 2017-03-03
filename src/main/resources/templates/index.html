@@ -1,105 +1,90 @@
-<!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link href="/files/global.css" media="screen" rel="stylesheet" type="text/css"/>
-    <link href="/files/storage.css" media="screen" rel="stylesheet" type="text/css"/>
-    <link href="/files/entries.css" media="screen" rel="stylesheet" type="text/css"/>
-    <title>SomeTimes Новости</title>
+    <link href="/files/style.css" type="text/css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <title>Бархатов Иван Николаевич, резюме</title>
 </head>
-<body class="division-storage division-storage-blog blog_2797 blog_novosti storage_2797 q-art-5"
-      data-promotion="[&quot;promotion\/q-art&quot;]" data-ga-key="UA-72696434-1" data-blog-id="2797"
-      data-blog-tag="novosti" data-storage="1">
-<div class="h-layoutWide" id="h-layoutWide">
-    <header>
-        <div class="narrowHeader clearfix">
-
-            <a href="/" class="logo" title="Главная"><img src="/files/web-logo.png" alt="Somes."/></a>
-            <div class="randomQuotation g-dsp">
-                <a class="web usercard" href="/"><img
-                        src="/files/owner.jpg"  border="0" width="124"
-                        height="110"/></a>
-                <div class="quotation">
-                    <p>
-                        <a class="userInSubject usercard"  href="http://vk.com/ibarhatov">Иван
-                            Бархатов</a>
-                    <p>Работать нужно с удовольствием.</p></p>
-                </div>
-                <div class="quotation-decor"></div>
-            </div>
-
-        </div>
-        <div class="h-h-mainMenu h-h-mainMenu_new">
-            <div class="h-mainMenu clearfix">
-                <ul class="mainMenu">
-                    <li>
-                    </li>
-                </ul>
+<body>
+<div class="top">
+    <!--Header-->
+    <div class="header">
+        <!--Logo-->
+        <a class="logo" href="/" title="Главная">
+            <img src="/files/logo.png"/>
+        </a>
+        <div class="peoplesSpeak">
+            <!--Photo-->
+            <a class="photoBlock" href="/" title="Главная">
+                <img class="ownersPhoto" src="/files/owner.jpg"/>
+            </a>
+            <!--Quote-->
+            <div class="quote">
+                <p class="speaker">Иван Бархатов</p>
+                <p>Работать нужно с удовольствием.</p>
             </div>
         </div>
-    </header>
-    <nav class="goToBlog goToBlog_header collapse navbar-collapse" data-gotoblog="">
-
-        <div class="goToBlog__nav nav navbar-nav">
-            <div class="goToBlog__left">
-                <li>
-                    <a href="/">Все новости</a>
-                </li>
-                <li th:each="category : ${categories}"><a class=" " th:href="@{/(categoryId=${category.id})}"
-                                                          th:text="${category.name}">
+    </div>
+    <!--Menu-->
+    <div class="menuZone">
+        <div class="menuPanel">
+            <!--Categories-->
+            <div class="categoriesZone">
+                <a class="categoryButton" href="/">
+                    <h3>Все новости</h3>
                 </a>
-                </li>
+                <a class="categoryButton" th:each="category : ${categories}" th:href="@{/(categoryId=${category.id})}">
+                    <h3 th:text="${category.name}"/>
+                </a>
             </div>
-            <div class="goToBlog__left">
-                <form method="get">
-                    <i><input type="text" name="search" placeholder="Поиск"/></i>
-                    <input name="categoryId" th:value="${categoryId}" type="hidden"/>
-                    <button style="background: #e8e8e8" type="submit">Искать!</button>
-                </form>
-            </div>
+            <!--Search-->
+            <form class="searchPanel" method="get">
+                <i><input type="text" name="search" placeholder="Поиск"/></i>
+                <input name="categoryId" th:value="${categoryId}" type="hidden"/>
+                <button style="background: #e8e8e8" type="submit">Искать!</button>
+            </form>
         </div>
-    </nav>
-    <div class="h-layoutNarrow">
-        <div class="mainLayout">
-            <div class="content left">
-                <div class="storageTitle clearfix">
-                    <h1><strong><span th:text="${headerText}"></span></strong></h1>
-                </div>
-                <div class="clear"></div>
-                <div class="entryList entryList-blog">
-                    <div class="storageItem storageItem-byAuthor" id="entry_121179" th:each="article : ${news}">
-                        <time>
-                            <p th:text="${article.date}"/>
-                        </time>
-                        <form method="post">
-                            <h2 class=""><a th:href="@{/article(articleId=${article.id})}">
-                                <span th:text="${article.title}"/></a></h2>
-                            <p class="storageItem__author">
-                                <a class=" usercard" href="http://vk.com/ibarhatov">Иван Бархатов</a>
-                            </p>
-                            <div class="storageItem__lead">
-                                <span th:text="${article.text}"/><br/>
-
-                                <div class="clear"></div>
-                            </div>
-                            <button style="background: #e8e8e8" name="removeArticle" type="submit"
-                                    th:value="${article.id}">Удалить
-                            </button>
-                        </form>
-                    </div>
-                    <p class="storageItem__author">
-                        <a class=" usercard" href="/addArticle"><b>Добавить статью</b></a></p>
-                    <br/>
-                </div>
-            </div>
-            <div class="content right"></div>
-            <div style="clear:both;"></div>
-
-            <div class="h-wrapper-count h-wrapper-count_color_black">
-                <div class="footer__copy"><br/><br/>
-                    Бархатов Иван, 2017
-                </div>
-            </div>
+    </div>
+</div>
+<div class="mainBlock">
+    <div class="articlesZone">
+        <!--MAIN BLOCK-->
+        <div class="topic">
+            <h1>
+                <span th:text="${headerText}"/>
+            </h1>
         </div>
+        <!--Articles-->
+        <div class="articleContent" th:each="article : ${news}">
+            <form method="post">
+                <!--Articles Title-->
+                <h2>
+                    <a th:href="@{/article(articleId=${article.id})}" th:text="${article.title}"/>
+                </h2>
+                <div class="time" th:text="${article.date}"/>
+                <!--Articles Text-->
+                <p th:text="${article.text}"/>
+                <!--Delete button-->
+                <button class="deleteButton" name="removeArticle" type="submit" th:value="${article.id}">Удалить
+                </button>
+            </form>
+        </div>
+        <!--Bottom actions block-->
+        <div class="bottomAction">
+            <a href="/addArticle">Добавить статью</a>
+        </div>
+        <!--Bottom Panel-->
+    </div>
+    <!--Adverts-->
+    <div class="advZone">
+        <img class="banner" src="/files/banner.png"/>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+<div class="bottomZone">
+    <div class="bottomPanel">
+        <a href="https://vk.com/ibarhatov" class="creatingInfo">
+            Бархатов Иван, 2017
+        </a>
     </div>
 </div>
 </body>

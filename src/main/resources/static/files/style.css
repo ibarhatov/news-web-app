@@ -1,0 +1,209 @@
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: red;
+}
+p {
+    margin-bottom: 5px;
+}
+input {
+    width: 200px;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+h1 {
+    font-size: 35px;
+    color: black;
+    font-weight: normal;
+}
+span {
+    border-bottom: 1px dotted silver;
+}
+h2 {
+    color: black;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+h3 {
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+}
+.top {
+}
+.header {
+    margin-left: auto;
+    margin-right: auto;
+    width: 990px;
+    background: white;
+    height: 110px;
+}
+.logo {
+    width: 200px;
+    float: left;
+    padding-top: 30px;
+    padding-left: 80px;
+}
+.peoplesSpeak {
+    float: left;
+    height: 110px;
+    width: 230px;
+}
+.photoBlock {
+    position: absolute;
+    float: left;
+    height: 110px;
+}
+.ownersPhoto {
+    height: 100%;
+}
+.quote {
+    position: absolute;
+    margin-left: 110px;
+    margin-top: 10px;
+    padding: 7px;
+    max-width: 100px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    border: 1px solid #e8e8e8;
+}
+.speaker {
+    margin-top: 0px;
+    font-weight: bold;
+}
+.menuZone {
+    background: #3a3a3a;
+    color: white;
+    height: 35px;
+    min-width: 990px;
+}
+.menuPanel {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 990px;
+}
+.categoriesZone {
+    padding-right: 10px;
+    height: 100%;
+    float: left;
+}
+.categoryButton {
+    float: left;
+    padding-top: 10px;
+    padding-bottom: 13px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.categoryButton:hover {
+    background: #dd0000;
+}
+.searchPanel {
+    float: right;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.mainBlock {
+    /*border: 1px solid silver;*/
+/*    display: flex;*/
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 900px;
+    width: 990px;
+}
+.articlesZone {
+ /*   border: 1px solid silver;*/
+    float: left;
+    width: 700px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.topic {
+    padding-left: 50px;
+    padding-bottom: 10px;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 44px;
+}
+.time {
+    font: italic 13px / 17px Georgia, Times, "Times New Roman", serif;
+    color: silver;
+}
+.articleContent {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px dotted silver;
+}
+.deleteButton {
+    float: right;
+    background: none;
+    border: none;
+    font: italic 14px / 14px Georgia, Times, "Times New Roman", serif;
+}
+.deleteButton:hover {
+    color: red;
+}
+.bottomAction {
+    font: italic 15px / 14px Georgia, Times, "Times New Roman", serif;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+.advZone {
+    margin: 10px;
+    margin-left: 0px;
+    float: right;
+}
+.banner {
+    margin-bottom: 10px;
+}
+.bottomZone {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #3a3a3a;
+    color: white;
+    height: 30px;
+    min-width: 990px;
+}
+.bottomPanel {
+    width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    color: white;
+    height: 100%;
+}
+.creatingInfo {
+    padding-top: 10px;
+    padding-right: 30px;
+    float: right;
+    color: silver;
+    font: italic 12px / 12px Georgia, Times, "Times New Roman", serif;
+}
