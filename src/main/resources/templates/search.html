@@ -55,18 +55,14 @@
         </div>
         <!--Articles-->
         <div class="articleContent" th:each="article : ${news}">
-            <form method="post">
-                <!--Articles Title-->
-                <h2>
-                    <a th:href="@{/article(articleId=${article.id})}" th:text="${article.title}"/>
-                </h2>
-                <div class="time" th:text="${article.date}"/>
-                <!--Articles Text-->
-                <p th:text="${article.text}"/>
-                <!--Delete button-->
-                <button class="deleteButton" name="removeArticle" type="submit" th:value="${article.id}">Удалить
-                </button>
-            </form>
+            <!--Articles Title-->
+            <h2>
+                <a th:href="@{/article(articleId=${article.id})}" th:text="${article.title}"/>
+            </h2>
+            <div class="time" th:text="${#dates.format(article.date, 'HH:mm, dd.MM.yy')}"/>
+            <!--Articles Text-->
+            <p th:text="${article.text}"/>
+            <!--Delete button-->
         </div>
         <!--Bottom actions block-->
         <div class="bottomAction">

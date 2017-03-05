@@ -70,31 +70,6 @@ public class IndexController {
         return "index";
     }
 
-    //    POST запрос на удаление статьи
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String removeArticle(Model model, @RequestParam(value = "removeArticle", required = false) String removableArticleId) {
-        logger.debug("Received request to delete article");
-
-        if (isValide(removableArticleId)) {
-            articleRepository.delete(Integer.valueOf(removableArticleId));
-        }
-        model.addAttribute("categories", categoryRepository.getAll());
-        List<Article> result = articleRepository.getAll();
-        for (Article article : result) {
-            String text = article.getText();
-            if (text.contains("\n")) {
-                int newLineIndex = text.indexOf("\n");
-                text = text.substring(0, newLineIndex) + "...";
-            }
-            if (text.length() > 150) {
-                text = text.substring(0, 150) + "...";
-            }
-            article.setText(text);
-        }
-        model.addAttribute("news", result);
-        return "index";
-    }
-
     //    страница со списком новостей
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(Model model, RedirectAttributes redirectAttributes,
@@ -161,10 +136,20 @@ public class IndexController {
             article.setDate(new Date());
             article.setCategoryId(Integer.valueOf(category));
             articleRepository.save(article);
-            model.addAttribute("categories", categoryRepository.getAll());
-            return "addArticleResult";
+            return "redirect:addArticleResult";
         }
         return "addArticle";
+    }
+
+    @RequestMapping("/addArticleResult")
+    public String articleWasAdded(Model model, RedirectAttributes redirectAttributes,
+                                  @RequestParam(value = "search", required = false) String searchString) {
+        if (isValide(searchString)) {
+            redirectAttributes.addAttribute("search", searchString);
+            return "redirect:search";
+        }
+        model.addAttribute("categories", categoryRepository.getAll());
+        return "/addArticleResult";
     }
 
     //    переход на страницу редактирования статьи
@@ -182,13 +167,13 @@ public class IndexController {
 
     //    редактирования статьи
     @RequestMapping(value = "/editArticle", method = RequestMethod.POST)
-    public String saveEditionArticle(Model model, @RequestParam(value = "articleId") String articleId,
+    public String saveEditionArticle(RedirectAttributes redirectAttributes,
+                                     @RequestParam(value = "articleId") String articleId,
                                      @RequestParam(value = "title") String title,
                                      @RequestParam(value = "text") String text,
                                      @RequestParam(value = "category") String category) {
         logger.debug("Received request to show save article page");
 
-        model.addAttribute("categories", categoryRepository.getAll());
         Article article = new Article();
         article.setId(Integer.valueOf(articleId));
         article.setTitle(title);
@@ -196,16 +181,14 @@ public class IndexController {
         article.setDate(new Date());
         article.setCategoryId(Integer.valueOf(category));
         articleRepository.saveEditionArticle(article);
-        model.addAttribute("article", article);
-        model.addAttribute("category", categoryRepository.findById(article.getCategoryId()));
-        return "/article";
+        redirectAttributes.addAttribute("articleId", article.getId());
+        return "redirect:article";
     }
 
     //    страница с полным описанием статьи
-    @RequestMapping("/article")
+    @RequestMapping(value = "/article", method = RequestMethod.GET)
     public String getArticle(Model model, RedirectAttributes redirectAttributes,
                              @RequestParam(value = "articleId", required = false) String articleId,
-//                             @RequestParam(value = "categoryId", required = false) String category,
                              @RequestParam(value = "search", required = false) String searchString) {
         logger.debug("Received request to show full article page");
 
@@ -220,6 +203,18 @@ public class IndexController {
         model.addAttribute("category", categoryRepository.findById(categoryId));
         model.addAttribute("categories", categoryRepository.getAll());
         return "article";
+    }
+
+    //    удаление статьи
+    @RequestMapping(value = "/article", method = RequestMethod.POST)
+    public String getArticle(Model model, RedirectAttributes redirectAttributes,
+                             @RequestParam(value = "removeArticle") String removableArticleId) {
+        logger.debug("Received request to delete article");
+
+        if (isValide(removableArticleId)) {
+            articleRepository.delete(Integer.valueOf(removableArticleId));
+        }
+        return "redirect:";
     }
 
     //    проверка параметра на валидность

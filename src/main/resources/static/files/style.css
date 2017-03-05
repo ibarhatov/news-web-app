@@ -12,12 +12,19 @@ body {
   outline: 0;
   padding: 0;
   vertical-align: baseline;
+  word-wrap: break-word;
 }
 a {
     color: black;
     text-decoration: none;
 }
 a:hover {
+    color: red;
+}
+button {
+    outline: none;
+}
+button:hover {
     color: red;
 }
 p {
@@ -172,6 +179,9 @@ h3 {
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
+    border: none;
+    background: none;
+    float: right;
 }
 .advZone {
     margin: 10px;

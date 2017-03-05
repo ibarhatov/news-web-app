@@ -1,4 +1,4 @@
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <link href="/files/style.css" type="text/css" rel="stylesheet"/>
     <meta charset="utf-8"/>
@@ -26,23 +26,23 @@
     </div>
     <!--Menu-->
     <div class="menuZone">
-        <!--<div class="menuPanel">-->
-            <!--&lt;!&ndash;Categories&ndash;&gt;-->
-            <!--<div class="categoriesZone">-->
-                <!--<a class="categoryButton" href="/">-->
-                    <!--<h3>Все новости</h3>-->
-                <!--</a>-->
-                <!--<a class="categoryButton" th:each="category : ${categories}" th:href="@{/(categoryId=${category.id})}">-->
-                    <!--<h3 th:text="${category.name}"/>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--&lt;!&ndash;Search&ndash;&gt;-->
-            <!--<form class="searchPanel" method="get">-->
-                <!--<i><input type="text" name="search" placeholder="Поиск"/></i>-->
-                <!--<input name="categoryId" th:value="${categoryId}" type="hidden"/>-->
-                <!--<button style="background: #e8e8e8" type="submit">Искать!</button>-->
-            <!--</form>-->
-        <!--</div>-->
+        <div class="menuPanel">
+            <!--Categories-->
+            <div class="categoriesZone">
+                <a class="categoryButton" href="/">
+                    <h3>Все новости</h3>
+                </a>
+                <a class="categoryButton" th:each="category : ${categories}" th:href="@{/(categoryId=${category.id})}">
+                    <h3 th:text="${category.name}"/>
+                </a>
+            </div>
+            <!--Search-->
+            <form class="searchPanel" method="get">
+                <i><input type="text" name="search" placeholder="Поиск"/></i>
+                <input name="categoryId" th:value="${categoryId}" type="hidden"/>
+                <button style="background: #e8e8e8" type="submit">Искать!</button>
+            </form>
+        </div>
     </div>
 </div>
 <div class="mainBlock">
