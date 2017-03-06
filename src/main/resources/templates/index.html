@@ -46,28 +46,7 @@
     </div>
 </div>
 <div class="mainBlock">
-    <div class="articlesZone">
-        <!--MAIN BLOCK-->
-        <div class="topic">
-            <h1>
-                <span th:text="${headerText}"/>
-            </h1>
-        </div>
-        <!--Articles-->
-        <div class="articleContent" th:each="article : ${news}">
-                <!--Articles Title-->
-                <h2>
-                    <a th:href="@{/article(articleId=${article.id})}" th:text="${article.title}"/>
-                </h2>
-                <div class="time" th:text="${#dates.format(article.date, 'HH:mm, dd.MM.yy')}"/>
-                <!--Articles Text-->
-                <p th:text="${article.text}"/>
-        </div>
-        <!--Bottom actions block-->
-        <div class="bottomAction">
-            <a href="/addArticle">Добавить статью</a>
-        </div>
-        <!--Bottom Panel-->
+    <div class="articlesZone" th:include="${container}">
     </div>
     <!--Adverts-->
     <div class="advZone">
@@ -75,6 +54,7 @@
     </div>
     <div style="clear: both;"></div>
 </div>
+<!--Bottom Panel-->
 <div class="bottomZone">
     <div class="bottomPanel">
         <a href="https://vk.com/ibarhatov" class="creatingInfo">

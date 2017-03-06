@@ -1,93 +1,28 @@
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <link href="/files/style.css" type="text/css" rel="stylesheet"/>
-    <meta charset="utf-8"/>
-    <title>SomeTimes Новости</title>
-</head>
-<body>
-<div class="top">
-    <!--Header-->
-    <div class="header">
-        <!--Logo-->
-        <a class="logo" href="/" title="Главная">
-            <img src="/files/logo.png"/>
-        </a>
-        <div class="peoplesSpeak">
-            <!--Photo-->
-            <a class="photoBlock" href="/" title="Главная">
-                <img class="ownersPhoto" src="/files/owner.jpg"/>
-            </a>
-            <!--Quote-->
-            <div class="quote">
-                <p class="speaker">Иван Бархатов</p>
-                <p>Работать нужно с удовольствием.</p>
-            </div>
-        </div>
+<!--MAIN BLOCK-->
+<form method="post">
+    <div>
+        <h2>Заголовок</h2>
+        <input name="articleId" th:value="${article.id}" type="hidden"/>
+        <input type="text" name="title" th:value="${article.title}"/>
     </div>
-    <!--Menu-->
-    <div class="menuZone">
-        <div class="menuPanel">
-            <!--Categories-->
-            <div class="categoriesZone">
-                <a class="categoryButton" href="/">
-                    <h3>Все новости</h3>
-                </a>
-                <a class="categoryButton" th:each="category : ${categories}" th:href="@{/(categoryId=${category.id})}">
-                    <h3 th:text="${category.name}"/>
-                </a>
-            </div>
-            <!--Search-->
-            <form class="searchPanel" method="get">
-                <i><input type="text" name="search" placeholder="Поиск"/></i>
-                <input name="categoryId" th:value="${categoryId}" type="hidden"/>
-                <button style="background: #e8e8e8" type="submit">Искать!</button>
-            </form>
-        </div>
+    <br/>
+    <div>
+        <h2>Категория</h2>
+        <select name="category">
+            <option th:value="${category.id}" th:text="${category.name}"
+                    th:each="category : ${categories}"/>
+        </select>
     </div>
-</div>
-<div class="mainBlock">
-    <div class="articlesZone">
-        <!--MAIN BLOCK-->
-        <form method="post">
-            <div>
-                <h2>Заголовок</h2>
-                <input name="articleId" th:value="${article.id}" type="hidden"/>
-                <input type="text" name="title" th:value="${article.title}"/>
-            </div>
-            <br/>
-            <div>
-                <h2>Категория</h2>
-                <select name="category">
-                    <option th:value="${category.id}" th:text="${category.name}"
-                            th:each="category : ${categories}"/>
-                </select>
-            </div>
-            <br/>
-            <div>
-                <h2>Текст</h2>
-                <textarea type="text" name="text" cols="100" rows="20" th:text="${article.text}"/>
-            </div>
-            <br/>
-            <br/>
-            <div>
-                <p>
-                    <button class="deleteButton" type="submit">Сохранить</button>
-                </p>
-            </div>
-        </form>
+    <br/>
+    <div>
+        <h2>Текст</h2>
+        <textarea type="text" name="text" cols="100" rows="20" th:text="${article.text}"/>
     </div>
-    <!--Adverts-->
-    <div class="advZone">
-        <img class="banner" src="/files/banner.png"/>
+    <br/>
+    <br/>
+    <div>
+        <p>
+            <button class="deleteButton" type="submit">Сохранить</button>
+        </p>
     </div>
-    <div style="clear: both;"></div>
-</div>
-<div class="bottomZone">
-    <div class="bottomPanel">
-        <a href="https://vk.com/ibarhatov" class="creatingInfo">
-            Бархатов Иван, 2017
-        </a>
-    </div>
-</div>
-</body>
-</html>
+</form>

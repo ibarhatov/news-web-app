@@ -1,77 +1,10 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <link href="/files/style.css" type="text/css" rel="stylesheet"/>
-    <meta charset="utf-8"/>
-    <title>SomeTimes Новости</title>
-</head>
-<body>
-<div class="top">
-    <!--Header-->
-    <div class="header">
-        <!--Logo-->
-        <a class="logo" href="/" title="Главная">
-            <img src="/files/logo.png"/>
-        </a>
-        <div class="peoplesSpeak">
-            <!--Photo-->
-            <a class="photoBlock" href="/" title="Главная">
-                <img class="ownersPhoto" src="/files/owner.jpg"/>
-            </a>
-            <!--Quote-->
-            <div class="quote">
-                <p class="speaker">Иван Бархатов</p>
-                <p>Работать нужно с удовольствием.</p>
-            </div>
-        </div>
-    </div>
-    <!--Menu-->
-    <div class="menuZone">
-        <div class="menuPanel">
-            <!--Categories-->
-            <div class="categoriesZone">
-                <a class="categoryButton" href="/">
-                    <h3>Все новости</h3>
-                </a>
-                <a class="categoryButton" th:each="category : ${categories}" th:href="@{/(categoryId=${category.id})}">
-                    <h3 th:text="${category.name}"/>
-                </a>
-            </div>
-            <!--Search-->
-            <form class="searchPanel" method="get">
-                <i><input type="text" name="search" placeholder="Поиск"/></i>
-                <input name="categoryId" th:value="${categoryId}" type="hidden"/>
-                <button style="background: #e8e8e8" type="submit">Искать!</button>
-            </form>
-        </div>
-    </div>
+<!--Articles-->
+<div class="articleContent">
+    <!--Articles Title-->
+    <h2>Новость добавлена!</h2>
 </div>
-<div class="mainBlock">
-    <div class="articlesZone">
-        <!--MAIN BLOCK-->
-        <!--Articles-->
-        <div class="articleContent">
-            <!--Articles Title-->
-            <h2>Новость добавлена!</h2>
-        </div>
-        <!--Bottom actions block-->
-        <div class="bottomAction">
-            <a href="/addArticle">Добавить другую запись</a><br/><br/>
-            <a href="/">На главную</a>
-        </div>
-        <!--Bottom Panel-->
-    </div>
-    <!--Adverts-->
-    <div class="advZone">
-        <img class="banner" src="/files/banner.png"/>
-    </div>
-    <div style="clear: both;"></div>
+<!--Bottom actions block-->
+<div class="bottomAction">
+    <a href="/addArticle">Добавить другую запись</a><br/><br/>
+    <a href="/">На главную</a>
 </div>
-<div class="bottomZone">
-    <div class="bottomPanel">
-        <a href="https://vk.com/ibarhatov" class="creatingInfo">
-            Бархатов Иван, 2017
-        </a>
-    </div>
-</div>
-</body>
-</html>

@@ -67,6 +67,7 @@ public class IndexController {
         model.addAttribute("categoryId", category);
         model.addAttribute("categories", categoryRepository.getAll());
         model.addAttribute("news", articles);
+        model.addAttribute("container", "home");
         return "index";
     }
 
@@ -109,7 +110,8 @@ public class IndexController {
         model.addAttribute("headerText", headerText);
         model.addAttribute("categoryId", category);
         model.addAttribute("news", result);
-        return "search";
+        model.addAttribute("container", "search");
+        return "index";
     }
 
     //    страницы добавления новой статьи
@@ -138,7 +140,8 @@ public class IndexController {
             articleRepository.save(article);
             return "redirect:addArticleResult";
         }
-        return "addArticle";
+        model.addAttribute("container", "addArticle");
+        return "index";
     }
 
     @RequestMapping("/addArticleResult")
@@ -149,7 +152,8 @@ public class IndexController {
             return "redirect:search";
         }
         model.addAttribute("categories", categoryRepository.getAll());
-        return "/addArticleResult";
+        model.addAttribute("container", "addArticleResult");
+        return "index";
     }
 
     //    переход на страницу редактирования статьи
@@ -162,7 +166,8 @@ public class IndexController {
         Article article = articleRepository.findById(id);
         model.addAttribute("article", article);
         model.addAttribute("category", categoryRepository.getAll());
-        return "/editArticle";
+        model.addAttribute("container", "editArticle");
+        return "index";
     }
 
     //    редактирования статьи
@@ -202,7 +207,8 @@ public class IndexController {
         Integer categoryId = article.getCategoryId();
         model.addAttribute("category", categoryRepository.findById(categoryId));
         model.addAttribute("categories", categoryRepository.getAll());
-        return "article";
+        model.addAttribute("container", "article");
+        return "index";
     }
 
     //    удаление статьи
